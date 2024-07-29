@@ -11,15 +11,15 @@ Actual Response: {actual_response}
 
 def test_monopoly_rules():
     assert query_and_validate(
-        question="How much total money does a player start with in Monopoly? (Answer with the number only)",
-        expected_response="$1500",
+        question="How many times Indonesia changed the de minimis policy?",
+        expected_response="2",
     )
 
 
 def test_ticket_to_ride_rules():
     assert query_and_validate(
-        question="How many points does the longest continuous train get in Ticket to Ride? (Answer with the number only)",
-        expected_response="10 points",
+        question="What is the merchant's response to the de minimis policy?",
+        expected_response="They want faster procedures and lower costs",
     )
 
 
@@ -36,11 +36,11 @@ def query_and_validate(question: str, expected_response: str):
     print(prompt)
 
     if "true" in evaluation_results_str_cleaned:
-        # Print response in Green if it is correct.
+        # Print the response in Green if it is correct.
         print("\033[92m" + f"Response: {evaluation_results_str_cleaned}" + "\033[0m")
         return True
     elif "false" in evaluation_results_str_cleaned:
-        # Print response in Red if it is incorrect.
+        # Print the response in Red if it is incorrect.
         print("\033[91m" + f"Response: {evaluation_results_str_cleaned}" + "\033[0m")
         return False
     else:
